@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e7f0f7;
+            color: #444;
+        }
+
+        .navbar {
+            background-color: #005f73;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #005f73;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .footer {
+            background-color: #003d5b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>User Profile</h1>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>User Information</h2>
+        <div class="user-info">
+            <p id="displayName"></p>
+            <p id="displayEmail"></p>
+            <p id="displayContact"></p>
+            <p id="displayCourse"></p>
+        </div>
+    </div>
+
+    <script>
+        // Get user data from local storage
+        const userData = JSON.parse(localStorage.getItem('userData'));
+
+        if (userData) {
+            document.getElementById('displayName').textContent = `Name: ${userData.name}`;
+            document.getElementById('displayEmail').textContent = `Email: ${userData.email}`;
+            document.getElementById('displayContact').textContent = `Contact: ${userData.contact}`;
+            document.getElementById('displayCourse').textContent = `Course: ${userData.course}`;
+        } else {
+            window.location.href = 'dashboard.html'; // Redirect to login if no user data
+        }
+    </script>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Official Contact: 
+            <a href="mailto:khondoker.t4@gmail.com">mastering-programming.support</a>
+        </p>
+        <p>Helpline: <a href="tel:+8801580388813">+8801580388813 (WhatsApp)</a></p>
+        <p>&copy; 2024 Khondoker Programming Hub. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
