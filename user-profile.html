@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +11,105 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e7f0f7;
-            color: #444;
+            background-color: #e7f0f7; /* Light background */
+            color: #444; /* Dark text color */
+            line-height: 1.6;
         }
 
+        /* Navbar */
         .navbar {
-            background-color: #005f73;
+            background-color: #005f73; /* Dark teal */
             color: white;
-            padding: 20px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .navbar h1 {
+            font-size: 24px;
             margin: 0;
         }
 
+        /* Main Container */
         .container {
-            padding: 50px;
+            padding: 30px;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto;
             background-color: #ffffff;
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
         .container h2 {
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #005f73;
+            text-align: center;
+            border-bottom: 2px solid #0a9396;
+            padding-bottom: 5px;
+        }
+
+        .user-info {
+            margin-bottom: 20px;
         }
 
         .user-info p {
-            margin: 5px 0;
+            margin: 10px 0;
             font-size: 18px;
+            color: #666;
+            background-color: #f9f9f9; /* Light background for user info */
+            padding: 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
+        .user-info p:hover {
+            background-color: #f1f1f1; /* Slightly darker on hover */
+        }
+
+        /* Video Links */
+        .video-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .video-links li {
+            margin: 10px 0;
+            text-align: center; /* Centering the links */
+        }
+
+        .video-links a {
+            text-decoration: none;
+            color: #005f73;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid #005f73;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block; /* Makes the link appear as a button */
+        }
+
+        .video-links a:hover {
+            background-color: #005f73; /* Background color on hover */
+            color: white; /* Text color on hover */
+        }
+
+        /* Footer */
         .footer {
-            background-color: #003d5b;
+            background-color: #003d5b; /* Dark blue */
             color: white;
             padding: 20px;
             text-align: center;
             margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .footer a {
@@ -60,23 +117,54 @@
             text-decoration: underline;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 align-items: flex-start;
+                padding: 15px;
             }
 
             .container {
                 padding: 20px;
             }
+
+            .container h2 {
+                font-size: 26px;
+            }
+
+            .user-info p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar h1 {
+                font-size: 20px;
+            }
+
+            .user-info p {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .container h2 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <div class="navbar">
         <h1>User Profile</h1>
+        <div class="navbar-right">
+            <a href="support.html">Support</a>
+            <a href="#">My Class</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -88,6 +176,13 @@
             <p id="displayContact"></p>
             <p id="displayCourse"></p>
         </div>
+
+        <h2>Courses</h2>
+        <ul class="video-links">
+            <li><a href="c_programming_dashboard.html">C Programming</a></li>
+            <li><a href="cpp-dsa-details_dashboard.html">C++ for DSA and Algorithms</a></li>
+            <li><a href="competitive_programming_dashboard.html">Competitive Programming</a></li>
+        </ul>
     </div>
 
     <script>
@@ -107,11 +202,20 @@
     <!-- Footer -->
     <div class="footer">
         <p>Official Contact: 
-            <a href="mailto:khondoker.t4@gmail.com">mastering-programming.support</a>
+            <a href="mailto:khondoker.t4@gmail.com">khondoker-programming-hub.support</a>
         </p>
         <p>Helpline: <a href="tel:+8801580388813">+8801580388813 (WhatsApp)</a></p>
         <p>&copy; 2024 Khondoker Programming Hub. All rights reserved.</p>
     </div>
 
+    <!-- Script for Logout -->
+    <script>
+        function logout() {
+            localStorage.removeItem('loggedIn'); // Clear the login status
+            window.location.href = 'update-login.html'; // Redirect to login page
+        }
+    </script>
+
 </body>
+
 </html>
