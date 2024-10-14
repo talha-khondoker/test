@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e7f0f7;
+            color: #444;
+        }
+
+        .navbar {
+            background-color: #005f73;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-right a:hover {
+            color: #0a9396;
+        }
+
+        .container {
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #005f73;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container button {
+            background-color: #0a9396;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #005f73;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Course Dashboard</h1>
+        <div class="navbar-right">
+            <a href="index.html">Home</a>
+            <a href="https://forms.gle/2gC3ccFwHnZueivr9" target="_blank">Registration</a>
+            <a href="need_private.html" class="navbar-button">Need Private Tutor</a>
+            <a href="class-group.html" class="navbar-button">Class in Group</a>
+            <a href="registration-and-payment.html" class="navbar-button">Enroll</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" class="error" style="color:red;"></p>
+    </div>
+
+    <script>
+        // Simulated user database
+        const users = {
+            'user1': {
+                password: 'pass1',
+                name: 'John Doe',
+                email: 'john@example.com',
+                contact: '+123456789',
+                course: 'C++ for DSA and Algorithms'
+            },
+            'user2': {
+                password: 'pass2',
+                name: 'Jane Smith',
+                email: 'jane@example.com',
+                contact: '+987654321',
+                course: 'Competitive Programming'
+            }
+        };
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (users[username] && users[username].password === password) {
+                // Successful login
+                localStorage.setItem('userData', JSON.stringify(users[username])); // Store user data
+                window.location.href = 'user-profile.html'; // Redirect to user profile
+            } else {
+                errorMessage.textContent = 'Invalid username or password!';
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Official Contact: 
+            <a href="mailto:khondoker.t4@gmail.com">mastering-programming.support</a>
+        </p>
+        <p>Helpline: <a href="tel:+8801580388813">+8801580388813 (WhatsApp)</a></p>
+        <p>&copy; 2024 Khondoker Programming Hub. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
