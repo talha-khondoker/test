@@ -17,8 +17,6 @@
         }
 
         /* Navbar */
-        
-/* Navbar */
         .navbar {
             background-color: #005f73; /* Dark teal for navbar */
             color: white;
@@ -51,6 +49,8 @@
         .navbar-right a:hover {
             color: #0a9396; /* Lighter teal on hover */
         }
+
+
         /* Main Container */
         .container {
             padding: 30px;
@@ -176,6 +176,14 @@
 
 <body>
 
+        <!-- Check if user is logged in -->
+        <script>
+            // Check if the user is logged in
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = 'login.html'; // Redirect to login if not logged in
+            }
+        </script>
+    
     <!-- Navbar -->
     <div class="navbar">
         <h1>User Profile</h1>
