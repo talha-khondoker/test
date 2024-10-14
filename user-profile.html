@@ -17,21 +17,40 @@
         }
 
         /* Navbar */
+        
+/* Navbar */
         .navbar {
-            background-color: #005f73; /* Dark teal */
+            background-color: #005f73; /* Dark teal for navbar */
             color: white;
-            padding: 15px 40px;
+            padding: 20px; /* Spacing around navbar */
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping of items */
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for navbar */
         }
 
         .navbar h1 {
-            font-size: 24px;
-            margin: 0;
+            font-size: 24px; /* Navbar title size */
+            margin: 0; /* Remove default margin */
         }
 
+        .navbar-right {
+            display: flex;
+            align-items: center; /* Center vertically */
+        }
+
+        .navbar-right a {
+            color: white; /* Navbar link color */
+            text-decoration: none; /* No underline */
+            margin-right: 20px; /* Space between links */
+            font-weight: 600; /* Bold font */
+            transition: color 0.3s ease; /* Transition for hover effect */
+        }
+
+        .navbar-right a:hover {
+            color: #0a9396; /* Lighter teal on hover */
+        }
         /* Main Container */
         .container {
             padding: 30px;
